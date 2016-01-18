@@ -142,9 +142,18 @@ var FORM=Backbone.View.extend({
 				});
 		
 		if (!mod.isValid()) {
- 			 alert(mod.validationError);
+ 			 $('#msg').empty();
+ 			 $('#msg').append('<div class="alert alert-danger">'+
+        					'<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>'+
+        					mod.validationError+
+    		'</div>');
 		}
 		else{
+			$('#msg').empty();
+			$('#msg').append('<div class="alert alert-success">'+
+        					'<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>'+
+        					'Added successfilly'+
+    		'</div>');
 			this.collection.add(mod);
 		}
 	}
