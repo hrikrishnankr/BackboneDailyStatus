@@ -15,6 +15,30 @@
 	display: inline-block;
 }
 
-label{
-	/*font-weight: bold;*/
+.description{
+	width: 50%;
+} 
+
+@media only screen and (max-width: 699px) {
+	.form-control{
+		width: 100%;
+		display: inline-block;
+	}
+
+	.date_div,.project_div,.activity_div{
+		width: 90%;
+		margin-right:35px;
+		display: inline-block;
+	}
+
+	.hour_div,.minute_div{
+		width: 45%;
+		margin:0px;
+		display: inline-block;
+	}
+
+	.description{
+		width: 90%;
+	} 
+	
 }
