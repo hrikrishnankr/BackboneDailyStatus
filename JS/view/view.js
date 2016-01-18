@@ -61,7 +61,6 @@ var TABLE=Backbone.View.extend({
 		return this;
 	},
 	render:function(){
-		console.log("click")
 		this.allRender();
 	},
 });
@@ -136,11 +135,18 @@ var FORM=Backbone.View.extend({
 	},
 	onSubmit:function(e){
 		e.preventDefault();
-		var mod=new  StatusModel({'id':Date.now(),'date':this.date.getId(),'project':this.project.getId(),
+		var mod=new  StatusModel();
+		mod.set({'id':Date.now(),'date':this.date.getId(),'project':this.project.getId(),
 					'activity':this.activity.getId(),'minute':this.minute.getId(),'hour':this.hour.getId(),
 					'descritpion':this.textArea.$el.val()
 				});
-		this.collection.add(mod);	
+		
+		if (!mod.isValid()) {
+ 			 alert(mod.validationError);
+		}
+		else{
+			this.collection.add(mod);
+		}
 	}
 });
 
